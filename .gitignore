@@ -3,3 +3,8 @@ dist
 .DS_Store
 .vite
 *.log
+
+# Environment files — NEVER commit these (they contain API keys)
+.env
+.env.local
+.env.*.local

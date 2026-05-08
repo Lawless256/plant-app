@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { readImageResized } from '../utils/image.js'
+import PlantIdModal from './PlantIdModal.jsx'
 
 const PLANT_EMOJIS = ['🪴', '🌱', '🌿', '🍃', '🌾', '🌷', '🌸', '🌺', '🌼', '🌻', '🌹', '🥀', '💐', '🌵', '🎋', '🌳']
 
@@ -21,6 +22,7 @@ export default function PlantForm({ initial, onCancel, onSave }) {
   const [waterStr, setWaterStr] = useState(String(initial?.waterEvery ?? 7))
   const [photoBusy, setPhotoBusy] = useState(false)
   const [photoError, setPhotoError] = useState('')
+  const [showIdModal, setShowIdModal] = useState(false)
   const cameraInput = useRef(null)
   const galleryInput = useRef(null)
 
@@ -70,6 +72,17 @@ export default function PlantForm({ initial, onCancel, onSave }) {
     <div className="modal-backdrop" onClick={onCancel}>
       <form className="modal" onClick={(e) => e.stopPropagation()} onSubmit={submit}>
         <h3>{initial ? 'Edit Plant 🌱' : 'Add a New Plant 🌱'}</h3>
+
+        {!initial && (
+          <button
+            type="button"
+            className="btn identify"
+            style={{ marginBottom: 14 }}
+            onClick={() => setShowIdModal(true)}
+          >
+            🔍 Identify with photo
+          </button>
+        )}
 
         <div className="field">
           <label>Plant name *</label>
@@ -191,6 +204,20 @@ export default function PlantForm({ initial, onCancel, onSave }) {
           </button>
         </div>
       </form>
+
+      {showIdModal && (
+        <PlantIdModal
+          onCancel={() => setShowIdModal(false)}
+          onPick={(picked) => {
+            setForm((f) => ({
+              ...f,
+              name: f.name || picked.name,
+              species: f.species || picked.species,
+            }))
+            setShowIdModal(false)
+          }}
+        />
+      )}
     </div>
   )
 }

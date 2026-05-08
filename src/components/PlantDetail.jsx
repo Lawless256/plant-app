@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { storage, uid, formatDate, formatRelative, daysBetween } from '../utils/storage.js'
+import HealthCheckModal from './HealthCheckModal.jsx'
 
 export default function PlantDetail({ plant, onBack, onEdit, onDelete, onWater }) {
   const [tab, setTab] = useState('care')
@@ -8,6 +9,7 @@ export default function PlantDetail({ plant, onBack, onEdit, onDelete, onWater }
   )
   const [newEntry, setNewEntry] = useState('')
   const [splash, setSplash] = useState(false)
+  const [showHealthCheck, setShowHealthCheck] = useState(false)
 
   useEffect(() => {
     setEntries(storage.getJournal().filter((e) => e.plantId === plant.id))
@@ -101,6 +103,9 @@ export default function PlantDetail({ plant, onBack, onEdit, onDelete, onWater }
           </div>
 
           <button className="btn green" onClick={water}>💧 Mark as Watered</button>
+          <button className="btn health" style={{ marginTop: 10 }} onClick={() => setShowHealthCheck(true)}>
+            🩺 Health Check
+          </button>
           <div className="btn-row">
             <button className="btn ghost" onClick={onEdit}>Edit</button>
             <button className="btn ghost" onClick={onDelete} style={{ color: 'var(--pink-600)' }}>
@@ -146,6 +151,13 @@ export default function PlantDetail({ plant, onBack, onEdit, onDelete, onWater }
       )}
 
       {splash && <div className="splash">💧</div>}
+
+      {showHealthCheck && (
+        <HealthCheckModal
+          plantName={plant.name}
+          onCancel={() => setShowHealthCheck(false)}
+        />
+      )}
     </div>
   )
 }
