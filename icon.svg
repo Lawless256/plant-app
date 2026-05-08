@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd9eb"/>
+      <stop offset="55%" stop-color="#efdcfb"/>
+      <stop offset="100%" stop-color="#d8efce"/>
+    </linearGradient>
+
+    <linearGradient id="leafLight" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#bce6b3"/>
+      <stop offset="100%" stop-color="#5fae5a"/>
+    </linearGradient>
+
+    <linearGradient id="leafDark" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#9fd991"/>
+      <stop offset="100%" stop-color="#4a8e47"/>
+    </linearGradient>
+
+    <radialGradient id="petal" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff0f7"/>
+      <stop offset="40%" stop-color="#ffb4d4"/>
+      <stop offset="100%" stop-color="#f053a0"/>
+    </radialGradient>
+
+    <radialGradient id="petalInner" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff5fa"/>
+      <stop offset="100%" stop-color="#ff9bc4"/>
+    </radialGradient>
+
+    <radialGradient id="centerYellow" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff8d4"/>
+      <stop offset="60%" stop-color="#f7c95b"/>
+      <stop offset="100%" stop-color="#d99a2a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- rounded square background (Android needs the radius; iOS rounds further) -->
+  <rect width="1024" height="1024" rx="230" ry="230" fill="url(#bg)"/>
+
+  <!-- subtle scattered dots -->
+  <g fill="#ffffff" opacity="0.4">
+    <circle cx="160" cy="180" r="6"/>
+    <circle cx="880" cy="220" r="5"/>
+    <circle cx="200" cy="840" r="5"/>
+    <circle cx="860" cy="820" r="6"/>
+    <circle cx="120" cy="500" r="4"/>
+    <circle cx="940" cy="540" r="4"/>
+    <circle cx="780" cy="120" r="3"/>
+    <circle cx="280" cy="120" r="3"/>
+  </g>
+
+  <!-- left leaf (teardrop shape, tip pointing up-left) -->
+  <g transform="translate(310 600) rotate(-40)">
+    <path
+      d="M 0 -340
+         C 130 -310 200 -180 200 -40
+         C 200 130 110 250 0 270
+         C -50 240 -80 180 -80 100
+         C -80 -40 -60 -200 0 -340 Z"
+      fill="url(#leafDark)"/>
+    <!-- center vein, kept well inside the leaf -->
+    <path d="M -10 -300 C 5 -180 25 -40 60 220"
+          stroke="#2f6a2c" stroke-width="8" fill="none" opacity="0.35" stroke-linecap="round"/>
+  </g>
+
+  <!-- right leaf (mirrored) -->
+  <g transform="translate(714 600) rotate(40)">
+    <path
+      d="M 0 -340
+         C -130 -310 -200 -180 -200 -40
+         C -200 130 -110 250 0 270
+         C 50 240 80 180 80 100
+         C 80 -40 60 -200 0 -340 Z"
+      fill="url(#leafLight)"/>
+    <path d="M 10 -300 C -5 -180 -25 -40 -60 220"
+          stroke="#2f6a2c" stroke-width="8" fill="none" opacity="0.35" stroke-linecap="round"/>
+  </g>
+
+  <!-- big flower in center (5 petals) -->
+  <g transform="translate(512 512)">
+    <!-- 5 petals rotated 72° apart -->
+    <g>
+      <ellipse cx="0" cy="-150" rx="105" ry="155" fill="url(#petal)"/>
+      <ellipse cx="0" cy="-150" rx="105" ry="155" fill="url(#petal)" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-150" rx="105" ry="155" fill="url(#petal)" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-150" rx="105" ry="155" fill="url(#petal)" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-150" rx="105" ry="155" fill="url(#petal)" transform="rotate(288)"/>
+    </g>
+    <!-- inner petal layer for depth -->
+    <g opacity="0.9">
+      <ellipse cx="0" cy="-90" rx="55" ry="85" fill="url(#petalInner)" transform="rotate(36)"/>
+      <ellipse cx="0" cy="-90" rx="55" ry="85" fill="url(#petalInner)" transform="rotate(108)"/>
+      <ellipse cx="0" cy="-90" rx="55" ry="85" fill="url(#petalInner)" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-90" rx="55" ry="85" fill="url(#petalInner)" transform="rotate(252)"/>
+      <ellipse cx="0" cy="-90" rx="55" ry="85" fill="url(#petalInner)" transform="rotate(324)"/>
+    </g>
+    <!-- yellow center -->
+    <circle cx="0" cy="0" r="62" fill="url(#centerYellow)"/>
+    <!-- center highlight -->
+    <ellipse cx="-12" cy="-18" rx="22" ry="14" fill="#fff8d4" opacity="0.7"/>
+  </g>
+
+  <!-- tiny purple bud (bottom-left) -->
+  <g transform="translate(220 830)">
+    <ellipse cx="0" cy="0" rx="32" ry="36" fill="#c2a0ee"/>
+    <ellipse cx="-18" cy="-8" rx="22" ry="28" fill="#ddc4f8"/>
+    <ellipse cx="18" cy="-8" rx="22" ry="28" fill="#ddc4f8"/>
+    <ellipse cx="0" cy="-22" rx="18" ry="22" fill="#f1e4ff"/>
+  </g>
+</svg>
