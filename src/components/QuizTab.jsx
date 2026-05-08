@@ -144,7 +144,15 @@ export default function QuizTab({ onGoToGarden }) {
 
       <div className="profile">
         <div className="photo">
-          <img src={plant.photo} alt={plant.name} loading="lazy" />
+          <img
+            src={plant.photo}
+            alt={plant.name}
+            loading="lazy"
+            onError={(e) => { e.currentTarget.style.display = 'none' }}
+          />
+          <div className="photo-fallback" aria-hidden>
+            <span className="photo-fallback-emoji">{plant.emoji || '🪴'}</span>
+          </div>
           <div className="badge">Match #{matchIdx + 1}</div>
         </div>
         <div className="body">
