@@ -86,23 +86,16 @@ export const QUESTIONS = [
   },
 ]
 
-// Verified working Unsplash plant photo URLs (hand-checked May 2026).
-// Used a pool approach: assigning photos that vibe with each archetype/plant.
-// If an image ever 404s, the UI renders a gradient + emoji fallback.
-const PHOTO = {
-  pinkBg: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&q=80',
-  lavender: 'https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?w=800&q=80',
-  shelfChaos: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
-  zzHero: 'https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=800&q=80',
-  monsteraHero: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=800&q=80',
-  monsteraSleek: 'https://images.unsplash.com/photo-1545241047-6083a3684587?w=800&q=80',
-  peaceLily: 'https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?w=800&q=80',
-  succulentMint: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800&q=80',
-  aloeWhite: 'https://images.unsplash.com/photo-1509223197845-458d87318791?w=800&q=80',
-  smallGreen: 'https://images.unsplash.com/photo-1591958911259-bee2173bdccc?w=800&q=80',
-  pottedGeneric: 'https://images.unsplash.com/photo-1572688484438-313a6e50c333?w=800&q=80',
-  seedlings: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80',
-}
+// ---------------------------------------------------------------
+// HOW TO CHANGE A PLANT'S PHOTO
+// ---------------------------------------------------------------
+// 1. Find a plant on Unsplash: https://unsplash.com/s/photos/<plant-name>
+// 2. Click the photo → right-click the big image → "Copy Image Address"
+//    (the URL should start with https://images.unsplash.com/photo-...)
+// 3. Find the plant below by name and replace the `photo:` URL.
+// 4. Run `npm run deploy` from the plant-app folder to publish.
+// If a URL ever 404s, the app falls back to a pretty gradient + emoji.
+// ---------------------------------------------------------------
 
 export const ARCHETYPES = {
   devoted: {
@@ -118,7 +111,7 @@ export const ARCHETYPES = {
         tagline: 'The Drama Queen of your windowsill',
         blurb:
           "Pink, green, and cream stripes that practically pose for the camera. She's a little needy — loves humidity, hates being moved — but the way she folds her leaves up at night like a prayer? Worth every misting.",
-        photo: PHOTO.shelfChaos,
+        photo: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
         whereToBuy: 'Etsy, The Sill',
         price: '$15–25',
         water: 'Weekly, keep humidity high',
@@ -132,7 +125,7 @@ export const ARCHETYPES = {
         tagline: 'The polite roommate who stays up late',
         blurb:
           'Big silvery-striped leaves that move with the sun. She forgives almost nothing about tap water but pays you back in elegance.',
-        photo: PHOTO.peaceLily,
+        photo: 'https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?w=800&q=80',
         whereToBuy: 'The Sill, Bloomscape',
         price: '$20–35',
         water: 'Weekly with filtered water',
@@ -146,7 +139,7 @@ export const ARCHETYPES = {
         tagline: 'Folds her hands at sunset, every single night',
         blurb:
           'Pink veins on velvet green leaves. She literally claps her leaves shut at night — the gentlest goodnight ritual a plant has ever offered.',
-        photo: PHOTO.smallGreen,
+        photo: 'https://images.unsplash.com/photo-1591958911259-bee2173bdccc?w=800&q=80',
         whereToBuy: 'Etsy, local nurseries',
         price: '$12–22',
         water: 'When top inch is dry',
@@ -168,7 +161,7 @@ export const ARCHETYPES = {
         tagline: 'Pink, purple, and absolutely shameless about it',
         blurb:
           'Striped in lavender, fuchsia, and mint green like a cotton candy explosion. Trails beautifully, propagates in a glass of water, and basically begs to be photographed.',
-        photo: PHOTO.pinkBg,
+        photo: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&q=80',
         whereToBuy: 'Etsy, local nursery',
         price: '$8–15',
         water: 'When top inch is dry',
@@ -182,7 +175,7 @@ export const ARCHETYPES = {
         tagline: 'The it-girl with bubblegum splashes',
         blurb:
           'Each leaf is a lottery — pink variegation in chaotic, perfect shapes. She’s pricey but iconic and you know it.',
-        photo: PHOTO.lavender,
+        photo: 'https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?w=800&q=80',
         whereToBuy: 'Etsy, specialty growers',
         price: '$25–60',
         water: 'When top inch is dry',
@@ -196,7 +189,7 @@ export const ARCHETYPES = {
         tagline: 'A leaf that wears blush',
         blurb:
           'Tiny pink freckles on green leaves. Compact, photogenic, and looks adorable in a tiny terracotta pot on a stack of art books.',
-        photo: PHOTO.shelfChaos,
+        photo: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
         whereToBuy: 'Most nurseries, Home Depot',
         price: '$5–10',
         water: 'Keep slightly moist',
@@ -218,7 +211,7 @@ export const ARCHETYPES = {
         tagline: 'Purple, fast, and weirdly forgiving',
         blurb:
           "Trails like a waterfall, glows purple in the sun, and bounces back from neglect like nothing happened. You can literally snap off a piece, drop it in dirt, and it'll grow.",
-        photo: PHOTO.lavender,
+        photo: 'https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?w=800&q=80',
         whereToBuy: 'Etsy, Home Depot',
         price: '$6–12',
         water: 'When the soil dries (forgiving)',
@@ -232,7 +225,7 @@ export const ARCHETYPES = {
         tagline: 'The plant that survived your worst era',
         blurb:
           "Will grow in low light, will grow in water, will grow if you forget about it for a month. The horse girl of houseplants — loyal forever.",
-        photo: PHOTO.shelfChaos,
+        photo: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
         whereToBuy: 'Literally everywhere',
         price: '$5–15',
         water: 'When leaves droop a little',
@@ -246,7 +239,7 @@ export const ARCHETYPES = {
         tagline: 'Neglected? She thrives.',
         blurb:
           'Glossy leaves on architectural stems. Stores water in its rhizomes — meaning the more you forget, the better. A plant for the chronically over-scheduled.',
-        photo: PHOTO.zzHero,
+        photo: 'https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=800&q=80',
         whereToBuy: 'Most nurseries',
         price: '$15–30',
         water: 'Every 2–3 weeks',
@@ -268,7 +261,7 @@ export const ARCHETYPES = {
         tagline: 'Heart-shaped pink and white drama',
         blurb:
           'Translucent leaves shaped like hearts, splashed with pink, cream, and green. Goes dormant in winter — which means you’ll get to spreadsheet a whole new growing season every spring.',
-        photo: PHOTO.pinkBg,
+        photo: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&q=80',
         whereToBuy: 'Local nursery, Etsy',
         price: '$10–20',
         water: 'Keep soil consistently moist',
@@ -282,7 +275,7 @@ export const ARCHETYPES = {
         tagline: 'The houseplant that needs a tutorial',
         blurb:
           'Shiny dark leaves with sharp white veins. She’s opinionated about humidity, light, and how often you breathe near her — perfect for someone who wants a project.',
-        photo: PHOTO.monsteraSleek,
+        photo: 'https://images.unsplash.com/photo-1545241047-6083a3684587?w=800&q=80',
         whereToBuy: 'Etsy, specialty nurseries',
         price: '$15–30',
         water: 'When top inch is dry',
@@ -296,7 +289,7 @@ export const ARCHETYPES = {
         tagline: 'Tiny green beads on a delicate thread',
         blurb:
           'Looks impossible to keep alive — and is, if you don’t research. Likes bright light, infrequent water, and the kind of person who knows the difference.',
-        photo: PHOTO.succulentMint,
+        photo: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800&q=80',
         whereToBuy: 'Etsy, The Sill',
         price: '$12–25',
         water: 'When pearls feel slightly soft',
@@ -318,7 +311,7 @@ export const ARCHETYPES = {
         tagline: 'Architectural, blush-toned, low drama',
         blurb:
           'Broad green leaves edged in soft pink. Tolerates lower light, doesn’t throw tantrums, and looks like she costs more than she does. The Carrara marble of houseplants.',
-        photo: PHOTO.pinkBg,
+        photo: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&q=80',
         whereToBuy: 'The Sill, Bloomscape',
         price: '$15–30',
         water: 'When top inch is dry',
@@ -332,7 +325,7 @@ export const ARCHETYPES = {
         tagline: 'Silver-green swords. Zero notes.',
         blurb:
           'Pale silvery upright leaves like a piece of sculpture. Will survive almost anything you do or don’t do. Famously hard to kill, beautifully hard to upstage.',
-        photo: PHOTO.aloeWhite,
+        photo: 'https://images.unsplash.com/photo-1509223197845-458d87318791?w=800&q=80',
         whereToBuy: 'Most nurseries',
         price: '$15–35',
         water: 'Every 2–3 weeks',
@@ -346,7 +339,7 @@ export const ARCHETYPES = {
         tagline: 'One plant. Whole room.',
         blurb:
           'A single 5-foot statement piece with broad paddle leaves. The kind of plant that walks into a room and rearranges the energy.',
-        photo: PHOTO.monsteraHero,
+        photo: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=800&q=80',
         whereToBuy: 'The Sill, Bloomscape',
         price: '$50–120',
         water: 'Weekly',
@@ -368,7 +361,7 @@ export const ARCHETYPES = {
         tagline: 'A trailing love letter',
         blurb:
           "Soft green heart-shaped leaves that grow approximately everywhere. Drape her over a bookshelf and she'll cascade down like a fairytale by year two. Forgiving and romantic.",
-        photo: PHOTO.shelfChaos,
+        photo: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
         whereToBuy: 'Most nurseries',
         price: '$8–15',
         water: 'When top inch is dry',
@@ -382,7 +375,7 @@ export const ARCHETYPES = {
         tagline: 'Tiny pink blooms, all winter long',
         blurb:
           'Clusters of bright pink, peach, or coral flowers on chunky succulent leaves. She blooms when nothing else does — pure cottage windowsill energy.',
-        photo: PHOTO.lavender,
+        photo: 'https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?w=800&q=80',
         whereToBuy: 'Most nurseries, grocery store florals',
         price: '$8–18',
         water: 'When soil dries fully',
@@ -396,7 +389,7 @@ export const ARCHETYPES = {
         tagline: 'Green clouds in a hanging basket',
         blurb:
           'Soft, frilly fronds that look incredible in a macramé hanger. Loves humidity, loves a steamy bathroom, loves you back.',
-        photo: PHOTO.peaceLily,
+        photo: 'https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?w=800&q=80',
         whereToBuy: 'Most nurseries',
         price: '$10–25',
         water: 'Keep consistently moist',
@@ -418,7 +411,7 @@ export const ARCHETYPES = {
         tagline: 'Velvet leaves with opinions',
         blurb:
           'Swirled silver, pink, and burgundy leaves like a watercolor painting. She’s moody about humidity but has more personality per square inch than any other plant in your collection.',
-        photo: PHOTO.lavender,
+        photo: 'https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?w=800&q=80',
         whereToBuy: 'Etsy, local nursery',
         price: '$10–18',
         water: 'When top inch is dry',
@@ -432,7 +425,7 @@ export const ARCHETYPES = {
         tagline: 'The grandmother plant making a comeback',
         blurb:
           'Velvet leaves and clusters of tiny purple, pink, or white flowers. Will bloom almost continuously if you treat her right — and yes, she absolutely knows when you’re in the room.',
-        photo: PHOTO.pinkBg,
+        photo: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&q=80',
         whereToBuy: 'Local nurseries, Etsy',
         price: '$8–15',
         water: 'From the bottom only',
@@ -446,7 +439,7 @@ export const ARCHETYPES = {
         tagline: 'Purple butterfly leaves that fold at night',
         blurb:
           'Deep purple shamrock leaves that close up like little wings when the lights go out. The most personable plant on this list — she literally says goodnight.',
-        photo: PHOTO.smallGreen,
+        photo: 'https://images.unsplash.com/photo-1591958911259-bee2173bdccc?w=800&q=80',
         whereToBuy: 'Etsy, local nursery',
         price: '$8–15',
         water: 'When top inch is dry',
@@ -468,7 +461,7 @@ export const ARCHETYPES = {
         tagline: 'A delicate cascade of tiny purple hearts',
         blurb:
           'Trailing strands of marbled silver-green and purple heart-shaped leaves. Loves bright light, easy to propagate, and looks unreal hanging in a sunny window.',
-        photo: PHOTO.shelfChaos,
+        photo: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=800&q=80',
         whereToBuy: 'Etsy, The Sill',
         price: '$12–20',
         water: 'When soil dries (drought-tolerant)',
@@ -482,7 +475,7 @@ export const ARCHETYPES = {
         tagline: 'Curly waxy leaves and surprise pink flowers',
         blurb:
           'Looks like a green braid trailing from a pot. Patient, slow-growing, and rewards bright light with clusters of perfect pink star-shaped blooms.',
-        photo: PHOTO.pottedGeneric,
+        photo: 'https://images.unsplash.com/photo-1572688484438-313a6e50c333?w=800&q=80',
         whereToBuy: 'Etsy, specialty nurseries',
         price: '$15–30',
         water: 'When soil dries fully',
@@ -496,7 +489,7 @@ export const ARCHETYPES = {
         tagline: 'Plump succulent braids that drape forever',
         blurb:
           'Pale green beaded tails that get longer every year. Loves a sunny windowsill and almost no attention from you.',
-        photo: PHOTO.succulentMint,
+        photo: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800&q=80',
         whereToBuy: 'Etsy, local nursery',
         price: '$10–20',
         water: 'Every 2–3 weeks',
