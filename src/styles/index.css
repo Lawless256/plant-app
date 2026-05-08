@@ -462,6 +462,107 @@ h1, h2, h3 {
 .tip-prevention { background: var(--purple-100); color: var(--purple-500); }
 .tip-chemical { background: var(--pink-100); color: var(--pink-600); }
 
+/* ---------- Wishlist ---------- */
+.wishlist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wish-card {
+  display: flex;
+  gap: 12px;
+  background: white;
+  border: 1.5px solid var(--pink-100);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.wish-photo {
+  width: 92px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  background: linear-gradient(135deg, var(--pink-100), var(--green-100));
+}
+.wish-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.wish-photo-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+}
+.wish-body {
+  flex: 1;
+  min-width: 0;
+}
+.wish-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.wish-latin {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.wish-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--purple-500);
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 1.3;
+}
+.wish-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.wish-chip {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--pink-50);
+  color: var(--ink);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.wish-where {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.wish-where b { color: var(--ink); }
+.wish-added {
+  font-size: 10px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+.wish-remove {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pink-600);
+  margin-top: 8px;
+  padding: 4px 0;
+}
+.wish-remove:hover { text-decoration: underline; }
+
 .btn-row {
   display: flex;
   gap: 10px;

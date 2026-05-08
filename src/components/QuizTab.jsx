@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { QUESTIONS, ARCHETYPES, ARCHETYPE_ORDER } from '../data/quiz.js'
 import { storage, uid } from '../utils/storage.js'
+import WishlistModal from './WishlistModal.jsx'
 
 function tally(answers) {
   const counts = Object.fromEntries(ARCHETYPE_ORDER.map((a) => [a, 0]))
@@ -26,6 +27,13 @@ export default function QuizTab({ onGoToGarden }) {
   const [archetype, setArchetype] = useState(saved?.archetype || null)
   const [matchIdx, setMatchIdx] = useState(0)
   const [wishToast, setWishToast] = useState(false)
+  const [showWishlist, setShowWishlist] = useState(false)
+  const [wishCount, setWishCount] = useState(() => storage.getWishlist().length)
+
+  // refresh wish count whenever the wishlist modal closes (item may have been removed)
+  useEffect(() => {
+    if (!showWishlist) setWishCount(storage.getWishlist().length)
+  }, [showWishlist])
 
   useEffect(() => {
     if (saved) {
@@ -78,6 +86,7 @@ export default function QuizTab({ onGoToGarden }) {
       list.push({ id: uid(), addedAt: Date.now(), ...plant })
       storage.setWishlist(list)
       setWishToast('added to wishlist 🌸')
+      setWishCount(list.length)
     }
     setTimeout(() => setWishToast(false), 1800)
   }
@@ -104,6 +113,12 @@ export default function QuizTab({ onGoToGarden }) {
             See my last match →
           </button>
         )}
+        {wishCount > 0 && (
+          <button className="btn ghost" style={{ marginTop: 10 }} onClick={() => setShowWishlist(true)}>
+            💕 My Wishlist ({wishCount})
+          </button>
+        )}
+        {showWishlist && <WishlistModal onCancel={() => setShowWishlist(false)} />}
       </div>
     )
   }
@@ -197,9 +212,19 @@ export default function QuizTab({ onGoToGarden }) {
         Start My Plant Tracker →
       </button>
 
+      <button
+        className="btn ghost"
+        style={{ marginTop: 10 }}
+        onClick={() => setShowWishlist(true)}
+      >
+        💕 My Wishlist {wishCount > 0 ? `(${wishCount})` : ''}
+      </button>
+
       <button className="btn ghost" style={{ marginTop: 10 }} onClick={retake}>
         Retake Quiz 🔁
       </button>
+
+      {showWishlist && <WishlistModal onCancel={() => setShowWishlist(false)} />}
 
       {wishToast && (
         <div
